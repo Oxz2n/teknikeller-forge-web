@@ -70,9 +70,23 @@
   }
 }
 
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @layer utilities {
   .bg-industrial-gradient {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 25%, #2a0f0f  50%, #1a0505 75%, #0a0a0a 100%);
+    background: linear-gradient(-45deg, #000000, #1a0a0a, #dc2626, #991b1b, #2a0f0f, #000000);
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
   }
   
   .bg-red-gradient {
