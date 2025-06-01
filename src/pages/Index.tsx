@@ -40,15 +40,15 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">TEKNIKELLER</span>
+              <span className="text-gradient text-animated">TEKNIKELLER</span>
               <br />
-              GROUP
+              <span className="fade-slide-up" style={{ animationDelay: '0.3s' }}>GROUP</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto fade-slide-up" style={{ animationDelay: '0.6s' }}>
               Engineering excellence in industrial machinery manufacturing. 
               From sugar cube production to stick coffee packaging solutions.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center fade-slide-up" style={{ animationDelay: '0.9s' }}>
               <Link
                 to="/catalogue"
                 className="btn-transparent px-8 py-4 rounded-lg font-semibold flex items-center justify-center gap-2"
