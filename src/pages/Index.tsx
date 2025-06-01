@@ -1,5 +1,5 @@
-
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import { ArrowRight, Cog, Factory, Zap, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -115,6 +115,8 @@ const Index = () => {
           </Link>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

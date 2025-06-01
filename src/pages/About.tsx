@@ -1,5 +1,5 @@
-
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import { Users, Award, Globe, TrendingUp } from 'lucide-react';
 
 const About = () => {
@@ -111,6 +111,8 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };

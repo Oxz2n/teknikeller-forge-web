@@ -1,5 +1,5 @@
-
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import { ArrowRight, Settings, Package, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -140,6 +140,8 @@ const Catalogue = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };
