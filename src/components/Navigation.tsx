@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Settings } from 'lucide-react';
+import LanguageSelector from './LanguageSelector';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,6 +43,9 @@ const Navigation = () => {
                 {item.label}
               </Link>
             ))}
+
+            {/* Language Selector */}
+            <LanguageSelector />
           </div>
         </div>
       </nav>
@@ -58,13 +62,18 @@ const Navigation = () => {
               <span className="text-lg font-bold text-white">TEKNIKELLER</span>
             </Link>
 
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            <div className="flex items-center space-x-3">
+              {/* Language Selector */}
+              <LanguageSelector />
+              
+              {/* Mobile menu button */}
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-gray-300 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+              >
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Navigation Menu */}

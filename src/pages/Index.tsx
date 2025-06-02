@@ -34,6 +34,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-blob-gradient text-white">
+      {/* Additional gradient layers for enhanced animation */}
+      <div className="gradient-layer-1"></div>
+      <div className="gradient-layer-2"></div>
+      <div className="gradient-layer-3"></div>
+      
       <Navigation />
       
       {/* Hero Section */}
