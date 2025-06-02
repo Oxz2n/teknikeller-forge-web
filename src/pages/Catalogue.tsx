@@ -63,7 +63,7 @@ const Catalogue = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-blob-gradient text-white">
+    <div className="min-h-screen bg-black text-white">
       <Navigation />
       
       <div className="pt-24 pb-20">

@@ -2,17 +2,75 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Users, Award, Globe, TrendingUp } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const About = () => {
+  const [counters, setCounters] = useState({
+    engineers: 0,
+    experience: 0,
+    countries: 0,
+    projects: 0
+  });
+
   const stats = [
-    { icon: Users, label: 'Expert Engineers', value: '50+' },
-    { icon: Award, label: 'Years Experience', value: '25+' },
-    { icon: Globe, label: 'Countries Served', value: '40+' },
-    { icon: TrendingUp, label: 'Projects Completed', value: '1000+' }
+    { 
+      icon: Users, 
+      label: 'Expert Engineers', 
+      value: '50+',
+      target: 50,
+      key: 'engineers'
+    },
+    { 
+      icon: Award, 
+      label: 'Years Experience', 
+      value: '25+',
+      target: 25,
+      key: 'experience'
+    },
+    { 
+      icon: Globe, 
+      label: 'Countries Served', 
+      value: '40+',
+      target: 40,
+      key: 'countries'
+    },
+    { 
+      icon: TrendingUp, 
+      label: 'Projects Completed', 
+      value: '1000+',
+      target: 1000,
+      key: 'projects'
+    }
   ];
 
+  useEffect(() => {
+    const animateCounters = () => {
+      stats.forEach((stat, index) => {
+        const duration = 2000;
+        const increment = stat.target / (duration / 50);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= stat.target) {
+            current = stat.target;
+            clearInterval(timer);
+          }
+          
+          setCounters(prev => ({
+            ...prev,
+            [stat.key]: Math.floor(current)
+          }));
+        }, 50);
+      });
+    };
+
+    const timer = setTimeout(animateCounters, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-blob-gradient text-white">
+    <div className="min-h-screen bg-black text-white">
       <Navigation />
       
       <div className="pt-24 pb-20">
@@ -64,7 +122,9 @@ const About = () => {
               <div key={index} className="text-center">
                 <div className={`glass-effect p-6 rounded-xl float-animation succession-${index + 5}`} style={{ animationDelay: `${index * 0.1}s` }}>
                   <stat.icon className="h-12 w-12 text-red-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                  <div className="text-3xl font-bold text-white mb-2">
+                    {counters[stat.key as keyof typeof counters]}{stat.key === 'projects' ? '+' : '+'}
+                  </div>
                   <div className="text-gray-300">{stat.label}</div>
                 </div>
               </div>

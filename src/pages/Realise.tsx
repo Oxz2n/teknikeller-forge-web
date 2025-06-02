@@ -53,7 +53,7 @@ const Realise = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-industrial-gradient text-white">
+    <div className="min-h-screen bg-black text-white">
       <Navigation />
       
       <div className="pt-24 pb-20">

@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Catalogue from "./pages/Catalogue";
 import Realise from "./pages/Realise";
 import NotFound from "./pages/NotFound";
+import FloatingLanguageSelector from "./components/FloatingLanguageSelector";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/realise" element={<Realise />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <FloatingLanguageSelector />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
