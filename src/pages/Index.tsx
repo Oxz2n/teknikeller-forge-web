@@ -1,3 +1,4 @@
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { ArrowRight, Cog, Factory, Zap, CheckCircle } from 'lucide-react';
@@ -32,7 +33,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-industrial-gradient text-white">
+    <div className="min-h-screen bg-blob-gradient text-white">
       <Navigation />
       
       {/* Hero Section */}
@@ -72,7 +73,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="glass-effect p-8 rounded-xl">
+              <div key={index} className={`glass-effect p-8 rounded-xl float-animation succession-${index + 1}`} style={{ animationDelay: `${index * 0.2}s` }}>
                 <feature.icon className="h-12 w-12 text-red-400 mb-4" />
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-gray-300">{feature.description}</p>
@@ -85,12 +86,12 @@ const Index = () => {
       {/* Sectors Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-12 succession-4">
             <span className="text-gradient">Industrial Sectors</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {sectors.map((sector, index) => (
-              <div key={index} className="glass-effect p-6 rounded-lg flex items-center gap-3">
+              <div key={index} className={`glass-effect p-6 rounded-lg flex items-center gap-3 succession-${Math.min(index + 5, 6)}`} style={{ animationDelay: `${0.8 + index * 0.1}s` }}>
                 <CheckCircle className="h-6 w-6 text-red-400 flex-shrink-0" />
                 <span className="font-medium">{sector}</span>
               </div>
@@ -101,14 +102,14 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center succession-6" style={{ animationDelay: '1.5s' }}>
           <h2 className="text-4xl font-bold mb-6">Ready to Engineer Your Future?</h2>
           <p className="text-xl text-gray-300 mb-8">
             Let's discuss your industrial machinery requirements and bring your vision to life.
           </p>
           <Link
             to="/realise"
-            className="btn-transparent px-12 py-4 rounded-lg font-bold text-lg inline-flex items-center gap-3"
+            className="btn-transparent px-12 py-4 rounded-lg font-bold text-lg inline-flex items-center gap-3 float-animation"
           >
             Start Your Project
             <ArrowRight className="h-6 w-6" />

@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -69,15 +70,39 @@
   }
 }
 
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
+@keyframes blob-move {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
   }
-  50% {
-    background-position: 100% 50%;
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
   }
-  100% {
-    background-position: 0% 50%;
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+@keyframes blob-move-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-30px, 50px) scale(0.8);
+  }
+  66% {
+    transform: translate(50px, -30px) scale(1.2);
+  }
+}
+
+@keyframes blob-move-3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(40px, 40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-40px, -40px) scale(0.9);
   }
 }
 
@@ -103,11 +128,58 @@
   }
 }
 
+@keyframes succession-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 @layer utilities {
-  .bg-industrial-gradient {
-    background: linear-gradient(-45deg, #000000, #1a0a0a, #dc2626, #991b1b, #2a0f0f, #000000);
-    background-size: 400% 400%;
-    animation: gradient-shift 8s ease infinite;
+  .bg-blob-gradient {
+    position: relative;
+    background: #000000;
+    overflow: hidden;
+  }
+  
+  .bg-blob-gradient::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 20% 20%, rgba(220, 38, 38, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(153, 27, 27, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(220, 38, 38, 0.2) 0%, transparent 50%);
+    animation: blob-move 15s ease-in-out infinite;
+    z-index: -3;
+  }
+  
+  .bg-blob-gradient::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -30%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle at 60% 40%, rgba(153, 27, 27, 0.4) 0%, transparent 60%),
+                radial-gradient(circle at 30% 70%, rgba(220, 38, 38, 0.25) 0%, transparent 50%);
+    animation: blob-move-2 20s ease-in-out infinite reverse;
+    z-index: -2;
   }
   
   .bg-red-gradient {
@@ -127,6 +199,34 @@
   
   .fade-slide-up {
     animation: fade-slide-up 1s ease-out;
+  }
+  
+  .succession-1 {
+    animation: succession-fade 0.8s ease-out 0.1s both;
+  }
+  
+  .succession-2 {
+    animation: succession-fade 0.8s ease-out 0.3s both;
+  }
+  
+  .succession-3 {
+    animation: succession-fade 0.8s ease-out 0.5s both;
+  }
+  
+  .succession-4 {
+    animation: succession-fade 0.8s ease-out 0.7s both;
+  }
+  
+  .succession-5 {
+    animation: succession-fade 0.8s ease-out 0.9s both;
+  }
+  
+  .succession-6 {
+    animation: succession-fade 0.8s ease-out 1.1s both;
+  }
+  
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
   }
   
   .border-gradient {

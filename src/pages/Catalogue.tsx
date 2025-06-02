@@ -1,3 +1,4 @@
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { ArrowRight, Settings, Package, Zap } from 'lucide-react';
@@ -62,17 +63,17 @@ const Catalogue = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-industrial-gradient text-white">
+    <div className="min-h-screen bg-blob-gradient text-white">
       <Navigation />
       
       <div className="pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 succession-1">
               <span className="text-gradient">Product Catalogue</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto succession-2">
               Explore our comprehensive range of industrial machinery designed for precision, efficiency, and reliability.
             </p>
           </div>
@@ -80,14 +81,14 @@ const Catalogue = () => {
           {/* Product Categories */}
           {products.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-20">
-              <div className="flex items-center gap-4 mb-12">
+              <div className={`flex items-center gap-4 mb-12 succession-${categoryIndex + 3}`}>
                 <category.icon className="h-10 w-10 text-red-400" />
                 <h2 className="text-4xl font-bold text-white">{category.category}</h2>
               </div>
               
               <div className="grid md:grid-cols-2 gap-8">
                 {category.machines.map((machine, machineIndex) => (
-                  <div key={machineIndex} className="glass-effect rounded-xl overflow-hidden">
+                  <div key={machineIndex} className={`glass-effect rounded-xl overflow-hidden float-animation succession-${Math.min(categoryIndex + machineIndex + 4, 6)}`} style={{ animationDelay: `${0.5 + categoryIndex * 0.3 + machineIndex * 0.2}s` }}>
                     <div className="aspect-video bg-gray-800 bg-opacity-50">
                       <img 
                         src={machine.image} 
@@ -125,14 +126,14 @@ const Catalogue = () => {
           ))}
 
           {/* Custom Solutions CTA */}
-          <div className="text-center glass-effect p-12 rounded-xl">
+          <div className="text-center glass-effect p-12 rounded-xl succession-6" style={{ animationDelay: '2s' }}>
             <h2 className="text-3xl font-bold mb-4">Need a Custom Solution?</h2>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               Don't see exactly what you need? Our engineering team specializes in creating bespoke machinery tailored to your specific requirements.
             </p>
             <Link
               to="/realise"
-              className="btn-transparent px-8 py-4 rounded-lg font-bold inline-flex items-center gap-3"
+              className="btn-transparent px-8 py-4 rounded-lg font-bold inline-flex items-center gap-3 float-animation"
             >
               Discuss Your Project
               <ArrowRight className="h-5 w-5" />

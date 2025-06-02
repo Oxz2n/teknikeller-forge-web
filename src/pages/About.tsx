@@ -1,3 +1,4 @@
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Users, Award, Globe, TrendingUp } from 'lucide-react';
@@ -11,24 +12,24 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-industrial-gradient text-white">
+    <div className="min-h-screen bg-blob-gradient text-white">
       <Navigation />
       
       <div className="pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 succession-1">
               <span className="text-gradient">About Teknikeller</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto succession-2">
               Leading the future of industrial machinery manufacturing with precision engineering and innovative solutions.
             </p>
           </div>
 
           {/* Company Story */}
           <div className="grid lg:grid-cols-2 gap-12 mb-20">
-            <div className="glass-effect p-8 rounded-xl">
+            <div className="glass-effect p-8 rounded-xl succession-3">
               <h2 className="text-3xl font-bold mb-6 text-red-400">Our Story</h2>
               <p className="text-gray-300 mb-4">
                 Founded with a vision to revolutionize industrial manufacturing, Teknikeller Group has been at the forefront of engineering excellence for over two decades. We specialize in creating sophisticated machinery that powers diverse industries worldwide.
@@ -41,7 +42,7 @@ const About = () => {
               </p>
             </div>
             
-            <div className="glass-effect p-8 rounded-xl">
+            <div className="glass-effect p-8 rounded-xl succession-4">
               <h2 className="text-3xl font-bold mb-6 text-red-400">Our Mission</h2>
               <p className="text-gray-300 mb-4">
                 To engineer and manufacture world-class industrial machinery that transforms production processes, enhances efficiency, and drives sustainable growth for our clients.
@@ -61,7 +62,7 @@ const About = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-20">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="glass-effect p-6 rounded-xl">
+                <div className={`glass-effect p-6 rounded-xl float-animation succession-${index + 5}`} style={{ animationDelay: `${index * 0.1}s` }}>
                   <stat.icon className="h-12 w-12 text-red-400 mx-auto mb-4" />
                   <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
                   <div className="text-gray-300">{stat.label}</div>
@@ -72,7 +73,7 @@ const About = () => {
 
           {/* Expertise Areas */}
           <div className="text-center">
-            <h2 className="text-4xl font-bold mb-12">
+            <h2 className="text-4xl font-bold mb-12 succession-6">
               <span className="text-gradient">Our Expertise</span>
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -102,7 +103,7 @@ const About = () => {
                   description: 'Complete production line integration and control systems'
                 }
               ].map((area, index) => (
-                <div key={index} className="glass-effect p-6 rounded-xl">
+                <div key={index} className={`glass-effect p-6 rounded-xl succession-${Math.min(index + 1, 6)}`} style={{ animationDelay: `${1.2 + index * 0.1}s` }}>
                   <h3 className="text-xl font-bold mb-3 text-white">{area.title}</h3>
                   <p className="text-gray-300">{area.description}</p>
                 </div>
